@@ -6,6 +6,8 @@ import java.util.List;
 public class Foo {
     private final Bar bar;
     private final ArrayList<Baz> bazs = new ArrayList<>();
+    private final Qux qux = new Qux();
+    private Corge corge;
 
     public Foo(final Bar bar) {
         this.bar = bar;
@@ -21,5 +23,19 @@ public class Foo {
 
     public Bar getBar() {
         return this.bar;
+    }
+
+    public Corge getCorge() {
+        return this.corge;
+    }
+
+    public void setCorge(final Corge corge) {
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
+        if (this.corge.getFoo() != this) {
+            this.corge.setFoo(this);
+        }
+        ;
     }
 }
